@@ -1,5 +1,4 @@
 const $movies = document.getElementById("movies")
-console.log($movies)
 
 let createArticle = function (img_p, title_p, tagline_p, descrption_p) {
     return `<article class = "bg-slate-300 w-[300px] border rounded-2xl h-[600px] flex flex-col items-center gap-4 pt-4">
