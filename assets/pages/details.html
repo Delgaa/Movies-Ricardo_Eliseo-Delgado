@@ -19,18 +19,18 @@
             <a class="text-white p-2" href="#">FAVS</a>
         </nav>
     </header>
-    <main>
-        <div id="detailsMovies">
+    <main class="p-2 flex flex-wrap gap-8 justify-center pt-9">
+        <div id="detailsMovies" class="flex flex-wrap gap-7 justify-around items-center w-[70%] ">
 
         </div>
-        <div id="tabls">
-            <table>
+        <div id="tabls" class="flex flex-wrap items-center justify-center gap-7 sm:justify-around w-[70%]">
+            <table class="flex">
                 <thead>
-                    <tr class="text-white ">
-                        <th class="border border-solid border-white p-2">original languaje</th>
-                        <th class="border border-solid border-white p-2">release date</th>
-                        <th class="border border-solid border-white p-2">runtime</th>
-                        <th class="border border-solid border-white p-2">status</th>
+                    <tr class="text-white flex flex-col">
+                        <th class="border border-solid border-white p-2 w-[150px]">original languaje</th>
+                        <th class="border border-solid border-white p-2 w-[150px]">release date</th>
+                        <th class="border border-solid border-white p-2 w-[150px]">runtime</th>
+                        <th class="border border-solid border-white p-2 w-[150px]">status</th>
                     </tr>
                 </thead>
                 <tbody id="dataTable1">
@@ -38,9 +38,9 @@
                 </tbody>
             </table>
 
-            <table>
+            <table class="flex ">
                 <thead>
-                    <tr class="text-white ">
+                    <tr class="text-white flex flex-col">
                         <th class="border border-solid border-white p-2">vote overage</th>
                         <th class="border border-solid border-white p-2">budget</th>
                         <th class="border border-solid border-white p-2">revenue</th>
@@ -57,5 +57,5 @@
         <p>Delgado, Ricardo Eliseo - Cohort N 53</p>
     </footer>
     <script src="../script/data.js"></script>
-    <script src="../script/details.js"></script>
+    <script type="module" src="../script/details.js"></script>
 </body>
