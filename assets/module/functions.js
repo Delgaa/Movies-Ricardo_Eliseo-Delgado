@@ -46,19 +46,19 @@ export const imgDetails = function (movieDetails_p) {
 export const infoTable1 = function (movieDetails_p) {
     return`
     <tr class = "text-white flex flex-col">
-        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.original_language}</td>
-        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.release_date}</td>
-        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.runtime} mins</td>
-        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.status}</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px]">${movieDetails_p.original_language}</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px]">${movieDetails_p.release_date}</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px]">${movieDetails_p.runtime} mins</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px]">${movieDetails_p.status}</td>
     </tr>
     `
 }
 export const infoTable2 = function (movieDetails_p) {
     return`
     <tr class = "text-white flex flex-col">
-        <td class="border border-solid border-white p-2 w-[150px] text-center">${movieDetails_p.vote_average.toFixed(2)} %</td>
-        <td class="border border-solid border-white p-2 w-[150px] text-center">USD ${movieDetails_p.budget.toLocaleString()}</td>
-        <td class="border border-solid border-white p-2 w-[150px] text-center">USD ${movieDetails_p.revenue.toLocaleString()}</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px] text-center">${movieDetails_p.vote_average.toFixed(2)} %</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px] text-center">USD ${movieDetails_p.budget.toLocaleString()}</td>
+        <td class="border border-solid border-white border-collapse p-2 w-[150px] text-center">USD ${movieDetails_p.revenue.toLocaleString()}</td>
     </tr>
     `
 }
