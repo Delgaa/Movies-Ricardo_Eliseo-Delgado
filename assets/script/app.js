@@ -28,6 +28,10 @@ $genreSelec.innerHTML += genresLists.reduce((acumul, genresList) => acumul += op
 
 $genreSelec.addEventListener("change", () => {
     const mosviesGenre = $genreSelec.value
-    const listMoviesGenres = filterGenres(movies, mosviesGenre)
+    const nameMovies = filterName(movies, $seacher.value)
+    const listMoviesGenres = filterGenres(nameMovies, mosviesGenre)
     passSection(listMoviesGenres, $movies)
+    if (listMoviesGenres.length == 0) {
+        $movies.innerHTML = `<p class= "text-white text-2xl p-1 text-center">There is no movie with that name entered, try another one.</p>`
+    }
 })
