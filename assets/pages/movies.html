@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Moviestack | MOVIES</title>
 </head>
-<body>
+<body class=" flex flex-col min-h-screen bg-zinc-900">
     <header class="bg-stone-950 flex flex-wrap border-b-2 border-solid border-white justify-center sm:justify-between sm:items-center">
         <div class="flex ">
             <img class="w-[100px] h-[100px] objet-contain" src="../images/Moviestack_isotipo.png" alt="logo_moviestack">
@@ -22,16 +22,16 @@
     <main class="bg-zinc-900 pt-7 flex flex-col gap-8 items-center">
         <h1 class="w-[93%] text-center bg-slate-300 py-6 font-bold text-3xl rounded-lg">MOVIES</h1>
         <div class="flex flex-wrap justify-center gap-7">
-            <select class="w-[250px]" name="Genero" id="selecGener">
-                <option value="all">Genre</option>
+            <select class="w-[300px] h-[40px] rounded-lg" name="Genre" id="selecGener">
+                <option class="text-center" value="all">-------Genre-------</option>
             </select>
-            <input class="w-[250px]" type="text" name="search" id="searchName" placeholder="Search..">
+            <input class="w-[300px] h-[40px] rounded-lg" type="text" name="search" id="searchName" placeholder="Search..">
         </div>
         <div class="flex flex-wrap justify-center gap-7 pb-8 min-[1610px]:w-[1300px]" id="movies">
             
         </div>
     </main>
-    <footer class=" bg-stone-950 border-t-2 border-solid border-white p-3 flex justify-center text-white">
+    <footer class=" bg-stone-950 border-t-2 border-solid border-white p-3 flex justify-center text-white mt-auto">
         <p>Delgado, Ricardo Eliseo - Cohort N 53</p>
     </footer>
 

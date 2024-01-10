@@ -18,6 +18,9 @@ $seacher.addEventListener("input", () => {
     const listMoviesGenres = filterGenres(movies, $genreSelec.value)
     const nameMovies = filterName(listMoviesGenres, tiping)
     passSection(nameMovies, $movies)
+    if (nameMovies.length == 0) {
+        $movies.innerHTML = `<p class= "text-white text-2xl p-1 text-center">There is no movie with that name entered, try another one.</p>`
+    }
 })
 
 const genresLists = repeatsGenre(movies)

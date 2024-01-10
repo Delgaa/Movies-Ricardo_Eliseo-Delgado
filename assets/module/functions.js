@@ -46,10 +46,10 @@ export const imgDetails = function (movieDetails_p) {
 export const infoTable1 = function (movieDetails_p) {
     return`
     <tr class = "text-white flex flex-col">
-        <td class="border border-solid border-white p-2 w-[100px]">${movieDetails_p.original_language}</td>
-        <td class="border border-solid border-white p-2 w-[100px]">${movieDetails_p.release_date}</td>
-        <td class="border border-solid border-white p-2 w-[100px]">${movieDetails_p.runtime} mins</td>
-        <td class="border border-solid border-white p-2 w-[100px]">${movieDetails_p.status}</td>
+        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.original_language}</td>
+        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.release_date}</td>
+        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.runtime} mins</td>
+        <td class="border border-solid border-white p-2 w-[150px]">${movieDetails_p.status}</td>
     </tr>
     `
 }
