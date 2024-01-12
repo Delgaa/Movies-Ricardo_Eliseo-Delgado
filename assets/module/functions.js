@@ -27,7 +27,8 @@ export function filterName(moviesArr, nameFilter) {
 export function repeatsGenre(arrMovies) {
     const genres = arrMovies.map(arrMovie => arrMovie.genres).flat()
     const set1 = new Set(genres)
-    return [...set1]
+    const arraySet =  [...set1].toSorted()
+    return arraySet
 }
 export function optionSelec(genre) {
     return `<option value="${genre}">${genre}</option>`

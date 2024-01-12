@@ -24,7 +24,8 @@ $seacher.addEventListener("input", () => {
 })
 
 const genresLists = repeatsGenre(movies)
-$genreSelec.innerHTML += genresLists.reduce((acumul, genresList) => acumul += optionSelec(genresList))
+let listaGenros = genresLists.reduce((acumul, genresList) => acumul += optionSelec(genresList), "")
+$genreSelec.innerHTML += listaGenros
 
 $genreSelec.addEventListener("change", () => {
     const mosviesGenre = $genreSelec.value
