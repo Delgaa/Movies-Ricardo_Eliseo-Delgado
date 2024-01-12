@@ -1,6 +1,6 @@
 export let createArticle = function (arrMovie_p) {
     return `<article class = "bg-slate-300 w-[250px] border rounded-2xl h-[400px] flex flex-col items-center gap-4 pt-4 lg:w-[300px]">
-    <img class = " w-[250px]" src= "${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
+    <img class = " w-[250px]" src= "https://moviestack.onrender.com/static/${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
     <h2 class = "text-start w-[95%] text-xl font-bold">${arrMovie_p.title}</h2>
     <h3 class = "text-start w-[95%] font-medium" >${arrMovie_p.tagline}</h3>
     <p class = "text-start w-[95%] line-clamp-4">${arrMovie_p.overview}</p>
@@ -33,9 +33,23 @@ export function repeatsGenre(arrMovies) {
 export function optionSelec(genre) {
     return `<option value="${genre}">${genre}</option>`
 }
+
+export function ordendigMovies (mmovies, propiety) {
+    const ordened = mmovies.filter(movie => movie[propiety])
+    .toSorted((a, b) =>{
+        if (a[propiety] < b[propiety]) {
+            return -1
+        }
+        if (a[propiety] > b[propiety]) {
+            return 0
+        }
+    })
+return ordened
+}
+
 export const imgDetails = function (movieDetails_p) {
     return `
-    <img class = "min-[450px]:w-[450px]" src= "${movieDetails_p.image}" alt="image of ${movieDetails_p.title}">
+    <img class = "min-[450px]:w-[450px]" src= "https://moviestack.onrender.com/static/${movieDetails_p.image}" alt="image of ${movieDetails_p.title}">
         <div class =" flex flex-col gap-7">
             <h2 class ="text-white font-bold">${movieDetails_p.title.toUpperCase()}</h2>
             <h3 class ="text-white font-medium">${movieDetails_p.tagline}</h3>
