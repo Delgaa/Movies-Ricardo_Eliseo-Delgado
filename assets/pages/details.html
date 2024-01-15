@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/Moviestack_favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Moviestack | Details</title>
+</head>
+<body class="flex flex-col min-h-screen bg-zinc-900">
+    <header class="bg-stone-950 flex flex-wrap border-b-2 border-solid border-white justify-center sm:justify-between sm:items-center">
+        <div class="flex ">
+            <img class="w-[100px] h-[100px] objet-contain" src="../images/Moviestack_isotipo.png" alt="logo_moviestack">
+            <img class="w-[250px] h-[100px]" src="../images/Moviestack_logotipo2.png" alt="title-moviestack">
+        </div>
+        <nav class="flex items-center gap-8 sm:mr-6">
+            <a class="text-white p-2" href="../../index.html">HOME</a>
+            <a class="text-white p-2" href="./movies.html">MOVIES</a>
+            <a class="text-white p-2" href="#">FAVS</a>
+        </nav>
+    </header>
+    <main class="p-2 flex flex-wrap gap-8 justify-center pt-9">
+        <div id="detailsMovies" class="flex flex-wrap gap-7 justify-around items-center w-[70%] ">
+
+        </div>
+        <div id="tabls" class="flex flex-wrap items-center justify-center gap-7 sm:justify-around w-[70%]">
+            <table class="flex border border-solid border-white border-collapse">
+                <thead>
+                    <tr class="text-white flex flex-col">
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">original languaje</th>
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">release date</th>
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">runtime</th>
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">status</th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable1">
+
+                </tbody>
+            </table>
+
+            <table class="flex border border-solid border-white border-collapse">
+                <thead>
+                    <tr class="text-white flex flex-col">
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">vote overage</th>
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">budget</th>
+                        <th class="border border-solid border-white border-collapse p-2 w-[150px]">revenue</th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable2">
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <main></main>
+    <footer class="bg-stone-950 border-t-2 border-solid border-white p-3 justify-center flex mt-auto text-white">
+        <p>Delgado, Ricardo Eliseo - Cohort N 53</p>
+    </footer>
+    <script src="../script/data.js"></script>
+    <script type="module" src="../script/details.js"></script>
+</body>
