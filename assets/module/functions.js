@@ -1,10 +1,15 @@
 export let createArticle = function (arrMovie_p) {
-    return `<article class = "bg-slate-300 w-[250px] border rounded-2xl h-[400px] flex flex-col items-center gap-4 pt-4 lg:w-[300px]">
+    return `<article id ="${arrMovie_p.id}" class = "bg-slate-300 w-[250px] border rounded-2xl h-[400px] flex flex-col items-center justify-between gap-4 pt-3 p-2 lg:w-[300px]">
     <img class = " w-[250px]" src= "https://moviestack.onrender.com/static/${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
-    <h2 class = "text-start w-[95%] text-xl font-bold">${arrMovie_p.title}</h2>
-    <h3 class = "text-start w-[95%] font-medium" >${arrMovie_p.tagline}</h3>
-    <p class = "text-start w-[95%] line-clamp-4">${arrMovie_p.overview}</p>
-    <a class = "self-end mb-1 mr-1 bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
+    <h2 class = "self-start text-xl font-bold">${arrMovie_p.title}</h2>
+    <h3 class = "self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
+    <p class = "line-clamp-2">${arrMovie_p.overview}</p>
+        <div class= "flex justify-between w-full ">
+            <button data-id="${arrMovie_p.id}" data-img="${arrMovie_p.image}" data-tagline="${arrMovie_p.tagline}" data-title="${arrMovie_p.title}" data-overview="${arrMovie_p.overview}" class=" w-[50px] h-[40px] flex justify-center items-center border border-gray-600 rounded-full">
+                <img data-fav= "painted" src="../images/heart-svgrepo-com.png" title ="Add to favorite" alt="button favorite">
+            </button>
+            <a class = "self-end bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
+        </div>
     </article>`
 }
 
@@ -52,7 +57,7 @@ export const imgDetails = function (movieDetails_p) {
     <img class = "min-[450px]:w-[450px]" src= "https://moviestack.onrender.com/static/${movieDetails_p.image}" alt="image of ${movieDetails_p.title}">
         <div class =" flex flex-col gap-7">
             <h2 class ="text-white font-bold">${movieDetails_p.title.toUpperCase()}</h2>
-            <h3 class ="text-white font-medium">${movieDetails_p.tagline}</h3>
+            <h3 class ="text-white font-medium min-[550px]:w-[450px]">${movieDetails_p.tagline}</h3>
             <h3 class ="text-white">${movieDetails_p.genres.join(", ")}</h3>
             <p class ="text-white min-[550px]:w-[450px]">${movieDetails_p.overview}</p>
         </div>
@@ -77,3 +82,31 @@ export const infoTable2 = function (movieDetails_p) {
     </tr>
     `
 }
+export function loadingDate(evento) {
+    const datosFavorites = {
+        id: evento.target.parentElement.dataset.id,
+        image: evento.target.parentElement.dataset.img,
+        title: evento.target.parentElement.dataset.title,
+        tagline: evento.target.parentElement.dataset.tagline,
+        overview: evento.target.parentElement.dataset.overview
+    }
+    return datosFavorites
+}
+
+export function deleteData(evento, favs) {
+    const movie = favs.findIndex(movie => movie.id == evento.target.parentElement.dataset.id)
+    favs.splice(movie, 1)
+}
+export function refrechButton (moviesFavorite_p) {
+    const $buttons = document.querySelectorAll('button')
+    $buttons.forEach(button => {
+        for (const favorie of moviesFavorite_p) {
+            if (button.dataset.id == favorie.id) {
+                button.classList.add("bg-red-500")
+                button.lastElementChild.title = "Remove from favorites"
+            }
+        }
+    })
+}
+
+export const moviesFavorites = []
