@@ -108,5 +108,3 @@ export function refrechButton (moviesFavorite_p) {
         }
     })
 }
-
-export const moviesFavorites = []

@@ -5,7 +5,6 @@ import {
     repeatsGenre, 
     optionSelec,
     ordendigMovies,
-    moviesFavorites,
     loadingDate,
     deleteData,
     refrechButton
@@ -13,6 +12,7 @@ import {
 const $movies = document.getElementById("movies")
 const $seacher = document.getElementById("searchName")
 const $genreSelec = document.getElementById("selecGener")
+
 
 
 const apiKey = '0ff70d54-dc0b-4262-9c3d-776cb0f34dbd'
@@ -28,8 +28,8 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
 
         const moviesOrdened = ordendigMovies(data.movies, 'title')
         passSection(moviesOrdened, $movies)
-        const moviesFavorites = JSON.parse(localStorage.getItem('moviesFavorites'))
 
+        const moviesFavorites = JSON.parse(localStorage.getItem('moviesFavorites'))
         refrechButton(moviesFavorites)
 
         $seacher.addEventListener("input", () => {
@@ -62,6 +62,7 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
                 }
             }
         }
+        
         const genresLists = repeatsGenre(moviesOrdened)
         let listaGenros = genresLists.reduce((acumul, genresList) => acumul += optionSelec(genresList), "")
         $genreSelec.innerHTML += listaGenros
