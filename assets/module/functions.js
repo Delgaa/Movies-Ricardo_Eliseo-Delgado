@@ -5,7 +5,7 @@ export let createArticle = function (arrMovie_p) {
     <h3 class = "self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
     <p class = "line-clamp-2">${arrMovie_p.overview}</p>
         <div class= "flex justify-between w-full ">
-            <button data-id="${arrMovie_p.id}" data-img="${arrMovie_p.image}" data-tagline="${arrMovie_p.tagline}" data-title="${arrMovie_p.title}" data-overview="${arrMovie_p.overview}" class=" w-[50px] h-[40px] flex justify-center items-center border border-gray-600 rounded-full">
+            <button data-id="${arrMovie_p.id}" class=" w-[50px] h-[40px] flex justify-center items-center border border-gray-600 rounded-full">
                 <img data-fav= "painted" src="../images/heart-svgrepo-com.png" title ="Add to favorite" alt="button favorite">
             </button>
             <a class = "self-end bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
@@ -20,21 +20,25 @@ export let passSection = (arrMovies, element) => {
     }
     element.innerHTML = list
 }
+
 export function filterGenres(arrMovies, genreSelec) {
     if (genreSelec == "all") {
         return arrMovies
     }
     return arrMovies.filter(arrMovie => arrMovie.genres.includes(genreSelec))
 }
+
 export function filterName(moviesArr, nameFilter) {
     return moviesArr.filter(movie => movie.title.toLowerCase().includes(nameFilter.toLowerCase()))
 }
+
 export function repeatsGenre(arrMovies) {
     const genres = arrMovies.map(arrMovie => arrMovie.genres).flat()
     const set1 = new Set(genres)
     const arraySet =  [...set1].toSorted()
     return arraySet
 }
+
 export function optionSelec(genre) {
     return `<option value="${genre}">${genre}</option>`
 }
@@ -63,6 +67,7 @@ export const imgDetails = function (movieDetails_p) {
         </div>
     `
 }
+
 export const infoTable1 = function (movieDetails_p) {
     return`
     <tr class = "text-white flex flex-col">
@@ -73,6 +78,7 @@ export const infoTable1 = function (movieDetails_p) {
     </tr>
     `
 }
+
 export const infoTable2 = function (movieDetails_p) {
     return`
     <tr class = "text-white flex flex-col">
@@ -82,13 +88,10 @@ export const infoTable2 = function (movieDetails_p) {
     </tr>
     `
 }
+
 export function loadingDate(evento) {
     const datosFavorites = {
         id: evento.target.parentElement.dataset.id,
-        image: evento.target.parentElement.dataset.img,
-        title: evento.target.parentElement.dataset.title,
-        tagline: evento.target.parentElement.dataset.tagline,
-        overview: evento.target.parentElement.dataset.overview
     }
     return datosFavorites
 }
@@ -97,14 +100,28 @@ export function deleteData(evento, favs) {
     const movie = favs.findIndex(movie => movie.id == evento.target.parentElement.dataset.id)
     favs.splice(movie, 1)
 }
+
 export function refrechButton (moviesFavorite_p) {
     const $buttons = document.querySelectorAll('button')
     $buttons.forEach(button => {
+
         for (const favorie of moviesFavorite_p) {
+
             if (button.dataset.id == favorie.id) {
                 button.classList.add("bg-red-500")
                 button.lastElementChild.title = "Remove from favorites"
             }
         }
     })
+}
+
+export function comparation(movies_p, moviesFavorites_p){
+    const movieOnFav = movies_p.filter(movie =>{
+        for (const moviesFavorite of moviesFavorites_p) {
+            if (moviesFavorite.id == movie.id) {
+                return movie
+            }
+        }
+    })
+    return movieOnFav
 }

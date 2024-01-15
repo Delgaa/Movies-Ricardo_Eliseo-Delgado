@@ -43,8 +43,7 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
             }
         })
 
-        $movies.addEventListener('click', favorit)
-        function favorit (e){
+        $movies.addEventListener('click', (e) => {
             const parent = e.target.parentElement.classList
             if (e.target.dataset.fav == "painted") {
 
@@ -61,8 +60,8 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
                     localStorage.setItem('moviesFavorites', JSON.stringify(moviesFavorites))
                 }
             }
-        }
-        
+        })
+
         const genresLists = repeatsGenre(moviesOrdened)
         let listaGenros = genresLists.reduce((acumul, genresList) => acumul += optionSelec(genresList), "")
         $genreSelec.innerHTML += listaGenros
