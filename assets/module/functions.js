@@ -5,8 +5,8 @@ export let createArticle = function (arrMovie_p) {
     <h3 class = "self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
     <p class = "line-clamp-2">${arrMovie_p.overview}</p>
         <div class= "flex justify-between w-full ">
-            <button data-id="${arrMovie_p.id}" class=" w-[50px] h-[40px] flex justify-center items-center border border-gray-600 rounded-full">
-                <img data-fav= "painted" src="../images/heart-svgrepo-com.png" title ="Add to favorite" alt="button favorite">
+            <button data-id="${arrMovie_p.id}" class="flex justify-center items-center rounded-full">
+            <i data-fav= "painted" class="fa-regular fa-heart text-black text-2xl ml-1" title ="Add to favorite"></i>
             </button>
             <a class = "self-end bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
         </div>
@@ -108,7 +108,8 @@ export function refrechButton (moviesFavorite_p) {
         for (const favorie of moviesFavorite_p) {
 
             if (button.dataset.id == favorie.id) {
-                button.classList.add("bg-red-500")
+                button.firstElementChild.classList.replace("fa-regular", "fa-solid")
+                button.firstElementChild.classList.replace("text-black", "text-red-600")
                 button.lastElementChild.title = "Remove from favorites"
             }
         }

@@ -31,8 +31,9 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
 
         $movies.addEventListener('click', (e) => {
             if (e.target.dataset.fav == "painted"){
-                if (e.target.parentElement.classList.contains("bg-red-500")) {
-                    e.target.parentElement.classList.remove("bg-red-500")
+                if (e.target.classList.contains("fa-solid")) {
+                    e.target.classList.replace("fa-solid", "fa-regular")
+                    e.target.classList.replace("text-red-600", "text-black")
                     deleteData(e, moviesFavorites)
                     moviesFavorite = comparation(movies, moviesFavorites)
                     ordenedMoviesFavorites = ordendigMovies(moviesFavorite, 'title')

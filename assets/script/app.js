@@ -28,8 +28,7 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
 
         const moviesOrdened = ordendigMovies(data.movies, 'title')
         passSection(moviesOrdened, $movies)
-
-        const moviesFavorites = JSON.parse(localStorage.getItem('moviesFavorites'))
+        let moviesFavorites = JSON.parse(localStorage.getItem('moviesFavorites')) || []
         refrechButton(moviesFavorites)
 
         $seacher.addEventListener("input", () => {
@@ -44,17 +43,19 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
         })
 
         $movies.addEventListener('click', (e) => {
-            const parent = e.target.parentElement.classList
             if (e.target.dataset.fav == "painted") {
 
-                if (!parent.contains("bg-red-500")) {
-                    parent.add("bg-red-500")
+                if (e.target.classList.contains("fa-regular")) {
+
+                    e.target.classList.replace("fa-regular", "fa-solid")
+                    e.target.classList.replace("text-black", "text-red-600")
                     e.target.title = "Remove from favorites"
                     moviesFavorites.push(loadingDate(e))
                     localStorage.setItem('moviesFavorites', JSON.stringify(moviesFavorites))
 
-                }else if (parent.contains("bg-red-500")) {
-                    parent.remove("bg-red-500")
+                }else if (!e.target.classList.contains("fa-reguar")) {
+                    e.target.classList.replace("fa-solid", "fa-regular")
+                    e.target.classList.replace("text-red-600", "text-black")
                     e.target.title = "Add to favorites"
                     deleteData(e, moviesFavorites)
                     localStorage.setItem('moviesFavorites', JSON.stringify(moviesFavorites))
