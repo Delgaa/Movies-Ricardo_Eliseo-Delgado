@@ -46,16 +46,19 @@ fetch('https://moviestack.onrender.com/api/movies', petition)
             if (e.target.dataset.fav == "painted") {
 
                 if (e.target.classList.contains("fa-regular")) {
-
-                    e.target.classList.replace("fa-regular", "fa-solid")
-                    e.target.classList.replace("text-black", "text-red-600")
+                    console.log([e.target]);
+                    e.target.parentElement.parentElement.innerHTML = `<span>Delet Fav</span>
+                    <button data-id="${e.target.parentElement.dataset.id}" class="flexjustify-center items-center rounded-full">
+                    <i data-fav= "painted" class="fa-solid fa-heart text-red-600 text-2xl ml-1 hover:text-red-600" title ="Remove to favorite"></i>`
                     e.target.title = "Remove from favorites"
                     moviesFavorites.push(loadingDate(e))
                     localStorage.setItem('moviesFavorites', JSON.stringify(moviesFavorites))
 
-                }else if (!e.target.classList.contains("fa-reguar")) {
-                    e.target.classList.replace("fa-solid", "fa-regular")
-                    e.target.classList.replace("text-red-600", "text-black")
+                }else if (!e.target.classList.contains("fa-regular")) {
+                    console.log([e.target]);
+                    e.target.parentElement.parentElement.innerHTML = `<span>Add to favs</span>
+                    <button data-id="${e.target.parentElement.dataset.id}" class="flexjustify-center items-center rounded-full">
+                    <i data-fav= "painted" class="fa-regular fa-heart text-black text-2xl ml-1 hover:text-red-600" title ="Add to favorite"></i>`
                     e.target.title = "Add to favorites"
                     deleteData(e, moviesFavorites)
                     localStorage.setItem('moviesFavorites', JSON.stringify(moviesFavorites))
