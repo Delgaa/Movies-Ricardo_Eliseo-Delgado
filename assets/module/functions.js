@@ -1,17 +1,17 @@
 export let createArticle = function (arrMovie_p) {
-    return `<article id ="${arrMovie_p.id}" class = "bg-slate-300 w-[250px] rounded-2xl h-[400px] flex flex-col items-center justify-between lg:w-[300px]">
+    return `<article id ="${arrMovie_p.id}" class = "bg-gray-600 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] w-[250px] rounded-2xl h-[400px] flex flex-col items-center justify-between lg:w-[300px] hover:scale-110">
     <img class = " w-full rounded-t-2xl" src= "https://moviestack.onrender.com/static/${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
-    <h2 class = "px-2 2self-start text-xl font-bold">${arrMovie_p.title}</h2>
-    <h3 class = "px-2 self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
-    <p class = "px-2 line-clamp-2">${arrMovie_p.overview}</p>
+    <h2 class = "text-white px-2 2self-start text-xl font-bold">${arrMovie_p.title}</h2>
+    <h3 class = "text-white px-2 self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
+    <p class = "text-white px-2 line-clamp-2">${arrMovie_p.overview}</p>
         <div class= "px-2 pb-2 flex justify-between w-full ">
             <div class = "flex flex-col ">
-                <span>Add to favs</span>
+                <span class = "text-white">Add to favs</span>
                 <button data-id="${arrMovie_p.id}" class="flex justify-center items-center rounded-full">
-                <i data-fav= "painted" class="fa-regular fa-heart text-black text-2xl ml-1 hover:text-red-600" title ="Add to favorite"></i>
+                <i data-fav= "painted" class="fa-regular fa-heart text-white text-2xl ml-1 hover:text-red-600" title ="Add to favorite"></i>
                 </button>
             </div>
-            <a class = "self-center bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
+            <a class = "self-center bg-blue-600 p-1 px-2 text-white rounded-xl hover:bg-blue-500" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
         </div>
     </article>`
 }
