@@ -1,14 +1,17 @@
 export let createArticle = function (arrMovie_p) {
-    return `<article id ="${arrMovie_p.id}" class = "bg-slate-300 w-[250px] border rounded-2xl h-[400px] flex flex-col items-center justify-between gap-4 pt-3 p-2 lg:w-[300px]">
-    <img class = " w-[250px]" src= "https://moviestack.onrender.com/static/${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
-    <h2 class = "self-start text-xl font-bold">${arrMovie_p.title}</h2>
-    <h3 class = "self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
-    <p class = "line-clamp-2">${arrMovie_p.overview}</p>
-        <div class= "flex justify-between w-full ">
-            <button data-id="${arrMovie_p.id}" class="flex justify-center items-center rounded-full">
-            <i data-fav= "painted" class="fa-regular fa-heart text-black text-2xl ml-1" title ="Add to favorite"></i>
-            </button>
-            <a class = "self-end bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
+    return `<article id ="${arrMovie_p.id}" class = "bg-slate-300 w-[250px] rounded-2xl h-[400px] flex flex-col items-center justify-between lg:w-[300px]">
+    <img class = " w-full rounded-t-2xl" src= "https://moviestack.onrender.com/static/${arrMovie_p.image}" alt="image of ${arrMovie_p.title}">
+    <h2 class = "px-2 2self-start text-xl font-bold">${arrMovie_p.title}</h2>
+    <h3 class = "px-2 self-start font-medium line-clamp-1" >${arrMovie_p.tagline}</h3>
+    <p class = "px-2 line-clamp-2">${arrMovie_p.overview}</p>
+        <div class= "px-2 pb-2 flex justify-between w-full ">
+            <div class = "flex flex-col ">
+                <span>Add to favs</span>
+                <button data-id="${arrMovie_p.id}" class="flex justify-center items-center rounded-full">
+                <i data-fav= "painted" class="fa-regular fa-heart text-black text-2xl ml-1 hover:text-red-600" title ="Add to favorite"></i>
+                </button>
+            </div>
+            <a class = "self-center bg-blue-600 p-1 px-2 text-white rounded-xl" href="../pages/details.html?id=${arrMovie_p.id}">Show more</a>
         </div>
     </article>`
 }
@@ -108,8 +111,9 @@ export function refrechButton (moviesFavorite_p) {
         for (const favorie of moviesFavorite_p) {
 
             if (button.dataset.id == favorie.id) {
-                button.firstElementChild.classList.replace("fa-regular", "fa-solid")
-                button.firstElementChild.classList.replace("text-black", "text-red-600")
+                button.parentElement.innerHTML = `<span>Delet Fav</span>
+                <button data-id="${button.dataset.id}" class="flexjustify-center items-center rounded-full">
+                <i data-fav= "painted" class="fa-solid fa-heart text-red-600 text-2xl ml-1 hover:text-red-600" title ="Remove to favorite"></i>`
                 button.lastElementChild.title = "Remove from favorites"
             }
         }
